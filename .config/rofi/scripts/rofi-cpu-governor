@@ -1,0 +1,31 @@
+#!/bin/bash
+# Author: AzErLoc
+# CPU governor menu for rofi
+
+notify(){
+    sleep 0.2
+    ICON="/home/az/scripts/ressources/icons/processor.png"
+    dunstify -t '4000' 'Fan Profile' "CPU Governor changed to $1" --icon=$ICON
+}
+
+SCALE_GOV_PATH="/sys/devices/system/cpu/cpufreq/policy*/scaling_governor"
+CUR=$(cat /sys/devices/system/cpu/cpufreq/policy0/scaling_governor)
+
+OPTIONS=$(echo "[ ] performance\n[ ] powersave\n[ ] schedutil" | sed -e "s/\[ \] $CUR/\[\x\] $CUR/g")
+
+CHOSEN=$(echo -e $OPTIONS | rofi -dmenu -hover-select -me-select-entry '' -me-accept-entry MousePrimary -l 3 -location 3 -xoffset 10 -yoffset 30 -theme '~/.config/rofi/themes/dropdown.rasi' -p "CPU Governor")
+echo $CHOSEN
+case $CHOSEN in
+    "[ ] performance")
+        echo performance | doas tee $SCALE_GOV_PATH;
+        echo 1 | doas tee /sys/devices/system/cpu/cpufreq/boost;
+        notify Performance;;
+    "[ ] powersave")
+        echo powersave | doas tee $SCALE_GOV_PATH;
+        echo 0 | doas tee /sys/devices/system/cpu/cpufreq/boost;
+        notify Powersave;;
+    "[ ] schedutil")
+        echo schedutil | doas tee $SCALE_GOV_PATH;
+        echo 1 | doas tee /sys/devices/system/cpu/cpufreq/boost;
+        notify Schedutil;;
+esac

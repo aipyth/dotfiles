@@ -1,0 +1,35 @@
+#!/bin/bash
+# Author: AzErLoc
+# Battery threshold menu for rofi
+
+notify(){
+    sleep 0.2
+    ICON="/usr/share/icons/breeze-dark/status/32/battery-0$1.svg"
+    [ ${#1} -gt 2 ] && ICON="/usr/share/icons/breeze-dark/status/32/battery-$1.svg"
+    dunstify -t '4000' 'Battery Threshold' "The battery will stop charging at $1%" --icon=$ICON
+}
+BAT_TH_PATH="/sys/class/power_supply/BAT0/charge_control_end_threshold"
+CUR=$(cat $BAT_TH_PATH)
+#BAT_SAVE_PATH="/home/az/scripts/ressources/batt_threshold"
+
+OPTIONS=$(echo "[ ] 100%\n[ ] 80%\n[ ] 60%" | sed -e "s/\[ \] $CUR%/\[\x\] $CUR%/g")
+
+CHOSEN=$(echo -e $OPTIONS | rofi -dmenu -hover-select -me-select-entry '' -me-accept-entry MousePrimary -l 3 -location 3 -xoffset 10 -yoffset 30 -theme '~/.config/rofi/themes/dropdown.rasi' -p "Battery Threshold")
+echo $CHOSEN
+case $CHOSEN in
+    "[ ] 100%")
+        #echo 100 | doas tee $BAT_TH_PATH;
+        #echo 100 > $BAT_SAVE_PATH;
+        asusctl -c 100
+        notify 100;;
+    "[ ] 80%")
+        #echo 80 | doas tee $BAT_TH_PATH;
+        #echo 80 > $BAT_SAVE_PATH;
+        asusctl -c 80
+        notify 80;;
+    "[ ] 60%")
+        #echo 60 | doas tee $BAT_TH_PATH;
+        #echo 60 > $BAT_SAVE_PATH;
+        asusctl -c 60
+        notify 60;;
+esac

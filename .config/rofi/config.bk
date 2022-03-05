@@ -1,0 +1,26 @@
+rofi.lines: 8
+rofi.eh: 1
+rofi.padding: 10
+rofi.width: 25
+rofi.bw: 0
+rofi.dpi: 96
+rofi.fullscreen: false
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.show-icons: false
+rofi.sidebar-mode:false
+rofi.hide-scrollbar:false
+! rofi.bw : 2
+! rofi.location: 0
+! rofi.yoffset: -80
+rofi.corner_radius: 15
+
+!                  'background', 'border', 'separator'
+! rofi.color-window: argb:401D1D1D, #7c8389, #FA5BF0
+rofi.color-window: argb:401D1D1D, #8e4ceb, #FA5BF0
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: argb:031D1D1D, #ffffff, argb:031D1D1D, argb:c9FA5BF0, #ffffff
+rofi.color-urgent: argb:031D1D1D, #ffffff, argb:bc303541, argb:031d1f21, #8e4ceb
+rofi.color-active: argb:031D1D1D, #ffffff, argb:031D1D1D, argb:031d1f21, #8e4ceb 
+rofi.font: DejaVu Sans Mono 15
+! rofi.font:  Inconsolata Nerd Font Mono 18

@@ -1,0 +1,153 @@
+configuration {
+	show-icons:true;
+	font: "Inconsolata Nerd Font Mono 14";
+}
+
+* {
+	background-color:            argb:00000000;
+    bg:                          argb:771C252A;
+	text-color:                  #eceff4;
+	selbg:                       #4c566a;
+	actbg:                       argb:bb3C3C3C;
+	urgbg:                       #bf616a;
+	winbg:                       #C140C1;
+
+	selected-normal-foreground:  @text-color;
+	normal-foreground:           @text-color;
+	selected-normal-background:  @actbg;
+	normal-background:           @background-color;
+
+	selected-urgent-foreground:  @urgbg;
+	urgent-foreground:           @text-color;
+	selected-urgent-background:  @actbg;
+	urgent-background:           @background-color;
+    urgent-foreground:           @urgbg;
+
+	selected-active-foreground:  @selbg;
+	active-foreground:           @selbg;
+	selected-active-background:  @actbg;
+	active-background:           @background-color;
+
+	line-margin:                 2;
+	line-padding:                2;
+	separator-style:             "none";
+	margin:                      0;
+	padding:                     10;
+}
+
+window {
+	background-color:            argb:331D1D1D;
+	location:	 center;
+	anchor:		 center;
+	height:		 85%;
+    //y-offset:    24px;
+    //x-offset:    12px;
+	width:		 60%;
+	orientation: horizontal;
+	children:	 [mainbox];
+    border-radius: 15px;
+    border: 2px solid;
+    border-color: #252525;
+}
+
+mainbox {
+	spacing:  0.8em;
+    orientation: vertical;
+	children: [ inputbar, listview ];
+}
+button { padding: 5px 2px; }
+
+button selected {
+	background-color: @active-background;
+	text-color:       @background-color;
+}
+
+inputbar {
+	children: 		[ prompt, entry ];
+	padding: 5px;
+	spacing: 5px;
+}
+
+listview {
+    columns: 2;
+	spacing: 0.5em;
+	dynamic: true;
+	cycle:   true;
+}
+
+element {
+        padding: 9px;
+}
+
+prompt {
+       padding:     20px 0px 0px 25px;
+       font:        "monospace 18";
+}
+
+entry {
+	expand:         true;
+    font:           "monospace 14";
+	text-color:     @normal-foreground;
+	vertical-align: 0;
+	padding:        24px 0px 0px 20px;
+    enabled:        true;
+}
+
+element normal.normal {
+	background-color: @bg;
+    border-radius:    8px;
+	text-color:       @normal-foreground;
+}
+
+element normal.urgent {
+	background-color: @bg;
+    border-radius:    8px;
+	text-color:       @urgent-foreground;
+}
+
+element normal.active {
+	background-color: @bg;
+    border-radius:    8px;
+	text-color:       @active-foreground;
+}
+
+element selected.normal {
+	background-color: @selected-normal-background;
+	text-color:       @selected-normal-foreground;
+}
+
+element selected.urgent {
+	background-color: @selected-urgent-background;
+	text-color:       @selected-urgent-foreground;
+}
+
+element selected.active {
+	background-color: @selected-active-background;
+	text-color:       @selected-active-foreground;
+}
+
+element alternate.normal {
+	background-color: @bg;
+    border-radius:    8px;
+	text-color:       @normal-foreground;
+}
+
+element alternate.urgent {
+	background-color: @bg;
+    border-radius:    8px;
+	text-color:       @urgent-foreground;
+}
+
+element alternate.active {
+	background-color: @bg;
+    border-radius:    8px;
+	text-color:       @active-foreground;
+}
+element-icon {
+	size: 7ch;
+}
+element.selected {
+    border-radius: 8px;
+	border:           0 0 0 5px solid;
+	border-color:	    @winbg;
+}

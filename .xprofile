@@ -1,0 +1,2 @@
+xinput set-prop "ETD2303:00 04F3:3083 Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "ETD2303:00 04F3:3083 Touchpad" "libinput Tapping Enabled" 1
