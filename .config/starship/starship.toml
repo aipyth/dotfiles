@@ -1,0 +1,38 @@
+# JavaCafe01 Prompt
+
+format = "$all"
+add_newline = true
+
+continuation_prompt = "▶▶"
+
+[character]
+error_symbol = "[](bold red)"
+success_symbol = "[](bold green)"
+vicmd_symbol = "[](bold yellow)"
+format = "$symbol [|](bold bright-black) "
+
+[hostname]
+ssh_only = true
+format = "[$hostname](bold blue) "
+disabled = false
+
+[directory]
+disabled = true
+
+[line_break]
+disabled = true
+
+[lua]
+symbol = "[](blue) "
+
+[container]
+format = "[$symbol \\[$name\\]]($style) "
+
+[[battery.display]] # "bold red" style and discharging_symbol when capacity is between 0% and 10%
+threshold = 10
+style = "bold red"
+
+[[battery.display]] # "bold yellow" style and 💦 symbol when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
+discharging_symbol = "💦"

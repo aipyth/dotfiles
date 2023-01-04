@@ -1,0 +1,14 @@
+[module/now-playing]
+type = custom/script
+tail = true
+format-prefix = %{T5}" "%{T-}
+format-prefix-background = ${colors.background-alt}
+format-prefix-foreground = ${colors.foreground}
+format = <label>
+format-background = ${colors.background-alt}
+exec = ${HOME}/.scripts/Polybar/now-playing/playing-zscroll.sh
+
+click-left = ~/.scripts/playerctl.sh togg && notify-send -u low -i ~/.icons/Sai-i3/Music.png "$(playerctl status)"
+scroll-up = ~/.scripts/playerctl.sh next
+scroll-down = ~/.scripts/playerctl.sh prev
+click-right = killall vlc

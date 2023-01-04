@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Author : owl4ce
+
+type -p brightnessctl &>/dev/null || exec "$EXNOTIFY_SEND" -u low -r 16 'Install brightnessctl!'
+
+BRIGHTNESS_STEPS=5
+
+notify()
+{
+    BRIGHTNESS="$(brightnessctl i | grep -oP '\(\K[^%\)]+')"
+    exec $HOME/.scripts/notify-send.sh -r 1234 -t 700 -i $HOME/.icons/UI/brightness.png "Brightness" "$BRIGHTNESS "
+}
+
+case ${1} in
+    up)      brightnessctl set "${BRIGHTNESS_STEPS:-5}%+" -q
+    ;;
+    down)    brightnessctl set "${BRIGHTNESS_STEPS:-5}%-" -q
+    ;;
+    optimal) brightnessctl set 10% -q
+    ;;
+esac
+
+notify
+
+exit ${?}
+
+# #!/bin/bash
+#
+# if [ "$1" == "inc" ]; then
+#     xbacklight -inc 5
+# fi
+#
+# if [ "$1" == "dec" ]; then
+#     xbacklight -lower 5
+# fi
+#
+# MAX_BRIGHTNESS=$(brightnessctl m)
+#
+# BRIGHTNESS=$(xbacklight -get)
+# NOTI_ID=$(notify-send.py "Bildschirmhelligkeit" "$BRIGHTNESS/100" \
+#                          --hint string:image-path:video-display boolean:transient:true \
+#                                 int:has-percentage:$BRIGHTNESS \
+#                          --replaces-process "brightness-popup")

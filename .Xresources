@@ -1,32 +1,158 @@
-URxvt.font: xft:Hack Nerd Font Mono:size=11
-URxvt.geometry: 84x22
-URxvt.internalBorder: 15
-URxvt.letterSpace: 0
+URxvt.intensityStyles:  false
+URxvt.scrollBar:        false
+!URxvt.font:            xft:monospace:size=15
+! URxvt.font:             xft:Inconsolata Nerd Font Mono:size=15,xft:Font Awesome 5 Free:size=15,xft:Source Han Sans JP Light:size=15,xft:Symbola:size=15
+! URxvt.font:                       xft:DaddyTimeMono NF:size=14:style=regular:autohint=true
+URxvt.font: xft:Hack Nerd Font Mono:size=10,xft:Noto Color Emoji,xft:Symbola
+! URxvt.boldFont: xft:Hack Nerd Font Mono:size=10,xft:Noto Color Emoji,xft:Symbola
+
+
+!URxvt*transparent:     true
+!URxvt*shading:         30
+URxvt*tint:            #3D3D3D
+URxvt*depth: 32
+! URxvt*background:       [100]#100018
+URxvt.background:		  [100]#1e1e28
+
+URxvt.internalBorder:  10
+URxvt.cursorUnderline:            true
+
+URxvt.letterSpace: -1
 URxvt.antialias: true
-URxvt.iconFile: /usr/share/icons/Papirus/48x48/apps/urxvt.svg
-URxvt.scrollBar: false
+URxvt.pointerBlank: true
+URxvt.scrollBar:                  false
+URxvt.scrollBar_right:            true
+URxvt.scrollBar_floating:         false
+URxvt.scrollstyle:                plain
+URxvt.scrollWithBuffer:           false
+URxvt.urgentOnBell:               false
+URxvt.depth:                      32
+URxvt.iso14755:                   false
 
-URxvt.iso14755:        false
-URxvt.iso14755_52:     false
+URxvt.keysym.Control-Right:     font-size:increase
+URxvt.keysym.Control-Left:   font-size:decrease
+URxvt.keysym.Control-Shift-Right:   font-size:incglobal
+URxvt.keysym.Control-Shift-Left: font-size:decglobal
+URxvt.keysym.Control-equal:  font-size:reset
+URxvt.keysym.Control-slash:  font-size:show
 
-URxvt.clipboard.autocopy: true
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Shift-C:     eval:selection_to_clipboard
+URxvt.keysym.Control-Shift-V:     eval:paste_clipboard
+URxvt.keysym.Control-Up:          eval:scroll_up 1
+URxvt.keysym.Control-Down:        eval:scroll_down 1
+URxvt.keysym.Control-Home:        eval:scroll_to_top
+URxvt.keysym.Control-End:         eval:scroll_to_bottom
 
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,matcher,resize-font
-URxvt.url-launcher: /usr/bin/xdg-open
-URxvt.url-select.underline: true
-URxvt.matcher.button: 1
+xmenu.borderWidth: 0
+xmenu.separatorWidth: 3
+xmenu.height: 25
+xmenu.width: 130
+xmenu.gap: 0
+xmenu.background: #141414
+!xmenu.background: #232222
+xmenu.foreground: #FFFFFF
+xmenu.selbackground: #ff00e1
+xmenu.selforeground: #FFFFFF
+xmenu.separator: #555
+xmenu.border: #ff00e1
+xmenu.font: Inconsolata Nerd Font:size=13
 
-URxvt.keysym.Control-Up:    \033[1;5A
-URxvt.keysym.Control-Down:  \033[1;5B
-URxvt.keysym.Control-Left:  \033[1;5D
-URxvt.keysym.Control-Right: \033[1;5C
 
-URxvt.resize-font.smaller: C-Down
-URxvt.resize-font.bigger: C-Up
 
-URxvt.transparent:false
-URxvt.depth: 32
+! -----------------
+! Suckless terminal
+! -----------------
+Xft.antialias:	1
+Xft.hinting:	1
+Xft.autohint:	0
+Xft.hintstyle:	hintslight
+Xft.rgba:       rgb
+Xft.lcdfilter:	lcddefault
 
-#include ".colors/ln"
+st.font:        JetBrainsMono Nerd Font:style:medium:pixelsize=15
+
+! st.font:        Hack Nerd Font Mono:style:medium:pixelsize=15
+! st.font:        Anonymice Nerd Font Mono:style:medium:pixelsize=15
+! st.font:        Hasklug Nerd Font Mono
+
+! window padding
+st.borderpx: 5
+
+!- 0.1 to 0.9 = transparency
+st.alpha: 1
+
+! ! *background: #181f21
+! *background: #101118
+! *foreground: #dadada
+!
+! ! Black + DarkGrey
+! *color0:  #22292b
+! ! *color0: #181f21
+! *color8:  #575e60
+!
+! ! DarkRed + Red
+! *color1:  #e06e6e
+! *color9:  #ef7d7d
+!
+! ! DarkGreen + Green
+! *color2:  #8ccf7e
+! *color10: #9bdead
+!
+! ! DarkYellow + Yellow
+! *color3:  #e5c76b
+! *color11: #f4d67a
+!
+! ! DarkBlue + Blue
+! *color4:  #67b0e8
+! *color12: #6cb5ed
+!
+! ! DarkMagenta + Magenta
+! *color5:  #c47fd5
+! *color13: #ce89df
+!
+! ! DarkCyan + Cyan
+! *color6:  #6da4cd
+! *color14: #67cbe7
+!
+! ! LightGrey + White
+! *color7:  #b3b9b8
+! *color15: #bdc3c2
+
+
+
+! special
+*.foreground:   #e3fbee
+*.background:   #0c0c0c
+*.cursorColor:  #e3fbee
+
+! black
+*.color0:       #121312
+*.color8:       #385ad1
+
+! red
+*.color1:       #fa6a6a
+*.color9:       #922121
+
+! green
+*.color2:       #58b858
+*.color10:      #019967
+
+! yellow
+*.color3:       #daaf54
+*.color11:      #a79621
+
+! blue
+*.color4:       #7da7bd
+*.color12:      #329190
+
+! magenta
+*.color5:       #57c650
+*.color13:      #2b8dcc
+
+! cyan
+*.color6:       #5a77e0
+*.color14:      #6895ca
+
+! white
+*.color7:       #dfece5
+*.color15:      #d2b7e1

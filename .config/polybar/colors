@@ -1,0 +1,27 @@
+[colors]
+; Main bar bg color 
+; background = #000000
+background = #001E1E28
+; Modules bg color
+; background-alt = #1E1E28
+background-alt = #000000
+background-alt-2 = #bd93f9
+background-alt-3 = #5B5F78
+; main foreground color 
+foreground = #D9E0EE
+; accent color
+accent = #56b9FF
+empty = #00000000
+
+mauve = #DDB6F2
+black = #131020
+green = #9bff93
+red = #F83322
+orange = #F89a66
+cyan = #80bfff
+pink = #F592f7
+yellow = #CAA330
+blue = #4644FB
+teal = #B5E8E0
+gray = #777
+flamingo = #ffafda

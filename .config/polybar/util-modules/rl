@@ -1,0 +1,11 @@
+[module/r1]
+type = custom/text
+content = %{T4}%{T-}
+content-background = ${colors.background}
+content-foreground = ${colors.background-alt}
+
+[module/l1]
+type = custom/text
+content = %{T4}%{T-}
+content-background = ${colors.background}
+content-foreground = ${colors.background-alt}

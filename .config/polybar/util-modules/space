@@ -1,0 +1,4 @@
+[module/space]
+type = custom/text
+content = "  "
+content-background = ${colors.background-alt}

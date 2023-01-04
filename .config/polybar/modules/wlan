@@ -1,0 +1,26 @@
+[module/wlan]
+type = internal/network
+interface = wlan0
+interval = 1.0
+
+; format-connected = <ramp-signal><label-connected>
+format-connected = <ramp-signal>
+format-connected-underline = ${colors.empty}
+label-connected = ""
+; label-connected = "%essid%"
+label-connected-foreground = ${colors.foreground}
+label-connected-background = ${colors.background-alt}
+
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = "  "
+format-disconnected-prefix-background = ${colors.background-alt}
+format-disconnected-prefix-foreground = ${colors.red}
+label-disconnected = %{A1:networkmanager_dmenu:}%{A-}
+label-disconnected-foreground = ${colors.red}
+label-disconnected-background =  ${colors.background-alt}
+
+; ramp-signal-0 = "%{T5}  %{T-}"
+ramp-signal-0 = "%{T5}  "
+ramp-signal-foreground = ${colors.accent}
+ramp-signal-background = ${colors.background-alt}
+click-left = exec networkmanager_dmenu

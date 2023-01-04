@@ -1,7 +1,7 @@
 * {
-    background-color: argb:031D1D1D;
+    background-color: argb:711D1D1D;
     text-color: #ffffff;
-    border-color: #252525;
+    border-color: #252531;
     spacing: 0;
     width:  800px;
 }
@@ -44,5 +44,9 @@ element {
 }
 
 element selected {
-    background-color: argb:E0FA5BF0;
+    background-color: argb:20FFFFFF;
+    /* background-color: argb:a01D1D5a; */
+}
+element selected textbox {
+    background-color: argb:20FFFFFF;
 }

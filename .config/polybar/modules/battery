@@ -1,0 +1,36 @@
+[module/battery]
+type = internal/battery
+label-charging = "%percentage%%  "
+label-charging-background = ${colors.background-alt}
+label-charging-foreground = ${colors.foreground}
+label-discharging-background = ${colors.background-alt}
+label-discharging-foreground = ${colors.foreground}
+label-discharging = "%percentage%%  "
+
+label-full = "  "
+label-full-background = ${colors.background-alt}
+label-full-foreground = ${colors.foreground}
+format-full-prefix = %{T3}%{T-}
+format-full-prefix-foreground = ${colors.green}
+format-full-prefix-background = ${colors.background-alt}
+
+format-charging = " <label-charging>"
+format-charging-foreground = ${colors.green}
+format-charging-background = ${colors.background-alt}
+format-discharging = "<ramp-capacity> <label-discharging>"
+format-discharging-foreground = ${colors.green}
+format-discharging-background = ${colors.background-alt}
+
+
+ramp-capacity-0 = %{T3} %{T-}
+ramp-capacity-1 = %{T3} %{T-}
+ramp-capacity-2 = %{T3} %{T-}
+ramp-capacity-3 = %{T3} %{T-}
+ramp-capacity-4 = %{T3} %{T-}
+
+full-at = 99
+
+battery = BAT0
+adapter = ADP0
+
+poll-interval = 5

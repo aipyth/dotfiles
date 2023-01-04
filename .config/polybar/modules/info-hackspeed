@@ -1,0 +1,4 @@
+[module/info-hackspeed]
+type = custom/script
+exec = ~/polybar-scripts/polybar-scripts/info-hackspeed/info-hackspeed.sh
+tail = true

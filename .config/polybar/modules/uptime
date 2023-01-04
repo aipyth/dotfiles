@@ -1,0 +1,9 @@
+[module/uptime]
+type = custom/script
+interval = 30
+exec = ~/.scripts/Polybar/uptime.sh
+format = "<label>"
+format-prefix = " "
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.mauve}

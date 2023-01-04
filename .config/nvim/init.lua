@@ -1,20 +1,15 @@
-require "user.options"
-require "user.keymaps"
-require "user.plugins"
-require "user.colorscheme"
-require "user.cmp"
-require "user.lsp"
-require "user.telescope"
-require "user.treesitter"
-require "user.comment"
-require "user.gitsigns"
-require "user.nvim-tree"
-require "user.bufferline"
-require "user.lualine"
-require "user.indentline"
-require "user.presence"
-require "user.project"
-require "user.alpha"
-require "user.ultisnips"
-require "user.vimtex"
-require "user.nvim-transparent"
+vim.defer_fn(function()
+  -- pcall(require, "impatient")
+  require('impatient').enable_profile()
+end, 0)
+require "core"
+require "core.options"
+
+vim.defer_fn(function()
+  require("core.utils").load_mappings()
+end, 0)
+
+-- -- setup packer + plugins
+require("core.packer").bootstrap()
+require "plugins"
+

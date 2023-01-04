@@ -1,0 +1,5 @@
+[module/gap]
+type = custom/text
+content = "| "
+content-background = ${colors.background-alt}
+content-foreground = ${colors.foreground-alt}

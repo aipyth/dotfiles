@@ -1,0 +1,24 @@
+[module/backlight]
+type = internal/backlight
+
+card = intel_backlight
+
+use-actual-brightness = true
+
+enable-scroll = true
+
+format = "<label>"
+format-prefix = "  "
+format-background = ${colors.background-alt}
+format-foreground = ${colors.orange}
+label =  "%percentage%%"
+label-foreground = ${colors.foreground}
+label-background = ${colors.background-alt}
+
+
+
+ramp-0 = %{F#F8BD96}0%{F-} 
+ramp-1 = %{F#F8BD96}0%{F-} 
+ramp-2 = %{F#F8BD96}0%{F-} 
+ramp-3 = %{F#F8BD96}0%{F-} 
+ramp-4 = %{F#F8BD96}0%{F-} 

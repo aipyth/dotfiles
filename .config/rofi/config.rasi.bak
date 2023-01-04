@@ -1,0 +1,23 @@
+configuration {
+    modi: "drun,window,run,ssh,windowcd,filebrowser";
+	display-drun:    " Apps";
+	display-ssh:    " SSH";
+	display-windowcd:  "缾 Windows";
+	/* font: "DejaVu Sans Mono 15"; */
+    font: "Iosevka 13";
+	show-icons: true;
+    icon-theme: "Numix-Circle";
+    drun-display-format: "{icon} {name}";
+    run-display-format: "{icon} {name}";
+	sidebar-mode: false;
+	eh: 1;
+	dpi: 96;
+    terminal: "kitty";
+
+}
+
+@theme "default.rasi"
+listview {
+    lines: 10;
+}
+

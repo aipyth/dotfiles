@@ -1,18 +1,44 @@
 #! /bin/sh
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+# ./detect_monitor
 
-bspc config border_width         2
-bspc config window_gap           8
+# bspc monitor -d I II III IV V VI VII VIII IX X
+# bspc monitor -d web1 web2 web3 code1 code2 graphics view other music social
 
-bspc config split_ratio          0.52
+internal_monitor=eDP1
+external_monitor=HDMI1
+if [[ "$1" = 0 ]]; then
+  if [[ $(xrandr -q | grep "${external_monitor} connected") ]]; then
+    bspc monitor "$external_monitor" -d 1 2 3 4 5
+    bspc monitor "$internal_monitor" -d 6 7 8 9
+    bspc wm -O "$external_monitor" "$internal_monitor"
+  else
+    bspc monitor "$internal_monitor" -d 1 2 3 4 5 6 7 8 9
+  fi
+else
+  if [[ $(xrandr -q | grep "${external_monitor} connected") ]]; then
+    bspc wm -O "$external_monitor" "$internal_monitor"
+  fi
+fi
+# ./handle_monitors
+
+bspc config border_width         0
+# bspc config border_width         3
+# bspc config focused_border_color \#96b6ff
+# bspc config normal_border_color  \#2d3852
+bspc config focused_border_color \#ffffff
+bspc config normal_border_color  \#000000
+
+bspc config window_gap           6
+
+bspc config split_ratio          0.58
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc config ignore_ewmh_focus true
 
 bspc config focus_follows_pointer true
-bspc config top_padding 38
+bspc config top_padding 26
 bspc config pointer_modifier mod1
 
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
@@ -21,18 +47,30 @@ bspc config pointer_modifier mod1
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 bspc rule -a Inkscape desktop='^6' follow=on
+# bspc rule -a TelegramDesktop desktop='^10' follow=on state=floating
+# bspc rule -a TelegramDesktop desktop='^10' follow=on
 
-# bspc rule -a discord desktop='^4' follow=off
-# bspc rule -a Discord desktop='^4' follow=off
-bspc rule -a Zathura follow=on
+# bspc rule -a discord desktop='^10' state=floating follow=off
+# bspc rule -a Discord desktop='^10' state=floating follow=off
+
+# bspc rule -a discord desktop='^10' follow=off
+# bspc rule -a Discord desktop='^10' follow=off
+
+# bspc rule -a Zathura follow=on
+bspc rule -a MEGAsync state=floating
+bspc rule -a URxvt state=floating
+bspc rule -a pavucontrol state=floating follow=on
 
 #####################
 
 # Kill if already running
-killall -9 sxhkd xsettingsd dunst xfce4-power-manager polybar picom wluma nitrogen
+# killall -9 sxhkd xsettingsd deadd-notification-center xfce4-power-manager polybar picom wluma 
+killall -9 sxhkd xsettingsd dunst xfce4-power-manager polybar picom wluma dropbox megasync
+killall monitor-battery.sh
 
 # Lauch notification daemon
 dunst &
+# deadd-notification-center &
 
 pgrep -x sxhkd > /dev/null || sxhkd -c /home/john/.config/sxhkd/sxhkdrc &
 
@@ -40,20 +78,32 @@ pgrep -x sxhkd > /dev/null || sxhkd -c /home/john/.config/sxhkd/sxhkdrc &
 
 # Set keyboard layout
 setxkbmap -option grp:alt_shift_toggle us,ru,ua &
+# setxkbmap -option grp:alt_shift_toggle us,ua &
 
 # wluma &
 
-nitrogen --restore &
+# nitrogen --restore &
 
 
-exec polybar main -c $HOME/.config/polybar/config &
+# exec polybar main -c $HOME/.config/polybar/config &
 # polybar music &
 # polybar other &
 # polybar bspwm &
+exec ~/.config/polybar/launch.sh &
 
 exec picom --backend glx --vsync --no-use-damage --experimental-backends &
 
-# DISPLAY=:0 feh --bg-center --bg-fill $(find ~/Pictures/Backgrounds f | shuf -n 1)
-feh --bg-center --bg-fill $(find ~/Pictures/Backgrounds f | shuf -n 1)
+exec /home/john/.scripts/set-wallpaper.sh &
 
+exec /home/john/.scripts/monitor-battery.sh &
+
+# Autostart
+dropbox &
+megasync &
+nm-applet &
 # discord &
+
+# -- SCRATCHPAD --
+# bspc rule -a scratchpad sticky=on state=floating hidden=on
+# # check scratchpad already running
+# [ "$(ps -x | grep -c 'scratchpad')" -eq "1" ] && st -c scratchpad -e ~/bin/scratch &

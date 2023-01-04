@@ -1,0 +1,7 @@
+[module/arch]
+type = custom/text
+content = %{T1} %{T-}%{T6} %{T-}%{T2} %{T-}
+click-left = urxvt
+click-right = urxvt -e ranger
+content-background = ${colors.accent}
+content-foreground = ${colors.background}

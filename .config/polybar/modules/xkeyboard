@@ -1,0 +1,21 @@
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.teal}
+format-prefix-underline = ${colors.empty}
+format-prefix-background = ${colors.background-alt}
+
+label-layout = " %name:0:3% "
+# label-layout = %name%
+# label-layout-underline = ${colors.secondary}
+label-foreground = ${colors.foreground}
+# label-background = ${colors.background-alt}
+label-layout-background = ${colors.background-alt}
+
+# label-indicator-padding = 2
+# label-indicator-margin = 1
+# label-indicator-background = ${colors.secondary}
+# label-indicator-underline = ${colors.secondary}

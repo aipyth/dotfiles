@@ -1,0 +1,6 @@
+[module/powermenu]
+type = custom/text
+content = %{T6} ⏻ %{T-}%{T1} %{T-}
+content-background = ${colors.background-alt}
+content-foreground = ${colors.foreground}
+click-left = ~/.scripts/Rofi/powermenu.sh

@@ -1,0 +1,7 @@
+[module/layout]
+type = custom/script
+interval = 2
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format = "  <label> "
+exec = ~/.scripts/layouts.sh

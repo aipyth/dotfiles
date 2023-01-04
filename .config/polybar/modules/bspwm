@@ -1,0 +1,56 @@
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+
+; ws-icon-0 = code1; 
+; ws-icon-1 = web3; 
+; ws-icon-2 = code2; 
+; ws-icon-3 = other; 
+; ws-icon-4 = web1; 
+; ws-icon-5 = web2;
+; ws-icon-6 = graphics;קּ
+; ws-icon-7 = view;恵
+; ws-icon-8 = social;
+; ws-icon-9 = music;
+; ws-icon-default = 
+
+ws-icon-0 = 1; 
+ws-icon-1 = 2; 
+ws-icon-2 = 3; 
+ws-icon-3 = 4; 
+ws-icon-4 = 5; 
+ws-icon-5 = 6;
+ws-icon-6 = 7;קּ
+ws-icon-7 = 8;恵
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 恵
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon% %name%
+; label-focused = %icon% %name%
+; label-focused = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-foreground = ${colors.accent}
+label-focused-underline= ${colors.accent}
+label-focused-padding = 1
+
+; label-occupied = %icon% %name% 
+; label-occupied = %name% 
+label-occupied-background = ${colors.background-alt}
+; label-occupied-foreground = ${colors.teal}
+label-occupied-foreground = ${colors.foreground}
+label-occupied-padding = 1
+
+; label-urgent = %icon% %name%
+label-urgent-background = ${colors.yellow}
+label-urgen-foreground = {colors.background-alt}
+label-urgent-padding = 2
+
+; label-empty = %index% %name%
+label-empty-foreground = ${colors.gray}
+label-empty-background = ${colors.background-alt}
+label-empty-padding = 1

@@ -4,10 +4,22 @@
 
 # terminal emulators
 super + Return
-    kitty
-
-super + shift + Return
     alacritty
+super + x
+    st
+super + shift + Return
+    kitty
+ctrl + alt + t
+    urxvt
+
+# scratchpad
+# super + e
+#   id=$(cat /tmp/scratchid);\
+#   bspc node $id --flag hidden;bspc node -f $id
+
+# notification panel
+super + n
+  kill -s USR1 $(pidof deadd-notification-center)
 
 # launch firefox
 super + b
@@ -17,12 +29,19 @@ super + s
     spotify
 
 super + v
-    brave
+    brave-dev
 
 super + d
     discord
 super + alt + t
     telegram-desktop
+
+super + p
+  pavucontrol
+
+# Wallpapers
+super + alt + e
+    echo {/home/john/Pictures/Backgrounds,/home/john/Pictures/landscapes1} > /home/john/.WALLPAPERS_DIR && /home/john/.scripts/set-wallpaper.sh
 
 # screenshots
 Print
@@ -38,14 +57,18 @@ shift + Print
 #     scrot -e 'xclip -selection clipboard -t image/png -i $f'
 
 # Reload sxhkdrc
-super + Escape
-    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+# super + Escape
+#     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+# eww
+super + e
+    {eww open main, eww close main}
 
 # rofi menu
-super + space
+super + shift + f
     rofi -show drun
-super + shift + space
-    rofi -show run
+# super + shift + space
+#     rofi -show run
 super + alt + w
     rofi -show window
 super + alt + s
@@ -56,30 +79,57 @@ super + alt + f
 
 # Media keys
 XF86AudioLowerVolume
-   amixer set Master 5%-
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+   # amixer set Master 5%- && source ~/.scripts/show-volume.sh dec &
 XF86AudioRaiseVolume
-   amixer set Master 5%+
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+   # amixer set Master 5%+ && source ~/.scripts/show-volume.sh inc &
+
 XF86AudioMute
     amixer set Master toggle
 XF86AudioNext
-    spt playback -n
+    playerctl next
+    # spt playback -n
 XF86AudioPrev
-    spt playback -p
+    playerctl previous
+    # spt playback -p
 XF86AudioPause
     spt playback -t
 XF86AudioPlay
-    spt playback -t
+    playerctl play-pause
+    # spt playback -t
+alt + XF86AudioPause
+    spt playback -T
+alt + XF86AudioPlay
+    playerctl play
 XF86AudioStop
     playerctl stop
 
 XF86MonBrightnessDown
-    brightnessctl -s set 2%-
+    brightnessctl -s set 2%- && source ~/.scripts/show-brightness.sh dec &
+
+    # brightnessctl -s set 2%- && ~/.scripts/show-brightness.sh
+
 XF86MonBrightnessUp
-    brightnessctl -s set +2%
+    brightnessctl -s set +2% && source ~/.scripts/show-brightness.sh inc &
+
+    # source ~/.scripts/show-brightness.sh inc &
+    # brightnessctl -s set +2% && ~/.scripts/show-brightness.sh
 
 # Change keyboard language
 alt + shift
-    {setxkbmap us, setxkbmap ru, setxkbmap ua}
+    # {setxkbmap us, setxkbmap ru, setxkbmap ua}
+    {setxkbmap us, setxkbmap ua}
+
+
+# Select lectures course
+super + shift + c
+    /home/john/sources/university-setup/scripts/rofi-courses.py
+# Open lectures in neovim
+# source ~/.scripts/open-nvim-lectures.sh
+super + shift + o
+    /home/john/sources/university-setup/scripts/rofi-lectures.py
+
 
 #
 # bspwm hotkeys
@@ -102,8 +152,8 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest window
-super + g
-	bspc node -s biggest.window
+# super + g
+# 	bspc node -s biggest.window
 
 #
 # state/flags
@@ -116,6 +166,14 @@ super + {t,shift + t,shift + s,f}
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
+
+# hide window
+super + g
+  bspc node -g hidden
+
+# unhide window
+super + shift + g
+  bspc node $(bspc query -N -n .hidden | head -n1) -g hidden=off
 
 #
 # focus/swap
@@ -130,7 +188,8 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }c
+# super + {_,shift + }c
+alt + {_,shift +}Tab
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
@@ -194,3 +253,4 @@ super + {Left,Down,Up,Right}
 # Show help
 super + slash
     ~/.scripts/sxhkd-help
+
