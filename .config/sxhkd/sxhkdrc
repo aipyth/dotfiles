@@ -66,7 +66,9 @@ super + e
 
 # rofi menu
 super + shift + f
-    rofi -show drun
+    sh ~/.config/rofi/bin/launcher
+# super + shift + f
+#     rofi -show drun
 # super + shift + space
 #     rofi -show run
 super + alt + w
@@ -154,6 +156,12 @@ super + y
 # swap the current node and the biggest window
 # super + g
 # 	bspc node -s biggest.window
+
+# change inner gaps
+super + {[,]}
+    { bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) + 10 )), \
+    [ $(bspc config -d focused window_gap) -ge 10 ] && \
+    bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) - 10 )) }
 
 #
 # state/flags

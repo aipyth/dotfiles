@@ -1,38 +1,177 @@
-# JavaCafe01 Prompt
+# # JavaCafe01 Prompt
 
-format = "$all"
-add_newline = true
+# format = "$all"
+# add_newline = true
 
-continuation_prompt = "▶▶"
+# continuation_prompt = "▶▶"
 
-[character]
-error_symbol = "[](bold red)"
-success_symbol = "[](bold green)"
-vicmd_symbol = "[](bold yellow)"
-format = "$symbol [|](bold bright-black) "
+# [character]
+# error_symbol = "[](bold red)"
+# success_symbol = "[](bold green)"
+# vicmd_symbol = "[](bold yellow)"
+# format = "$symbol [|](bold bright-black) "
 
-[hostname]
-ssh_only = true
-format = "[$hostname](bold blue) "
-disabled = false
+# [hostname]
+# ssh_only = true
+# format = "[$hostname](bold blue) "
+# disabled = false
 
-[directory]
+# [directory]
+# disabled = true
+
+# [line_break]
+# disabled = true
+
+# [lua]
+# symbol = "[](blue) "
+
+# [container]
+# format = "[$symbol \\[$name\\]]($style) "
+
+# [[battery.display]] # "bold red" style and discharging_symbol when capacity is between 0% and 10%
+# threshold = 10
+# style = "bold red"
+
+# [[battery.display]] # "bold yellow" style and 💦 symbol when capacity is between 10% and 30%
+# threshold = 30
+# style = "bold yellow"
+# discharging_symbol = "💦"
+
+
+[aws]
 disabled = true
 
-[line_break]
+[cmake]
+disabled = true
+
+[cmd_duration]
+min_time = 500
+format = "[$duration]($style) "
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[dart]
+disabled = true
+
+[directory]
+read_only = " "
+truncate_to_repo = false
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[env_var]
+disabled = true
+
+[erlang]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+symbol = " "
+
+[git_status]
+format = "[$ahead_behind$untracked$modified]($style) "
+
+[golang]
+disabled = true
+
+[helm]
+disabled = true
+
+[java]
+disabled = true
+
+[jobs]
+disabled = true
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[kubernetes]
 disabled = true
 
 [lua]
-symbol = "[](blue) "
+disabled = true
 
-[container]
-format = "[$symbol \\[$name\\]]($style) "
+[nim]
+disabled = true
 
-[[battery.display]] # "bold red" style and discharging_symbol when capacity is between 0% and 10%
-threshold = 10
-style = "bold red"
+[nix_shell]
+disabled = true
 
-[[battery.display]] # "bold yellow" style and 💦 symbol when capacity is between 10% and 30%
-threshold = 30
-style = "bold yellow"
-discharging_symbol = "💦"
+[nodejs]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[openstack]
+disabled = true
+
+[package]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[purescript]
+disabled = true
+
+[python]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[scala]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[singularity]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[vagrant]
+disabled = true
+
+[zig]
+disabled = true
+
+[username]
+format = "[$user]($style)"
+
+[hostname]
+ssh_symbol = "@"
+format = "$ssh_symbol[$hostname](bright-blue) "

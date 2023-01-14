@@ -1,0 +1,45 @@
+#! /bin/sh
+
+# Kill if already running
+# killall -9 sxhkd xsettingsd deadd-notification-center xfce4-power-manager polybar picom wluma 
+killall -9 sxhkd xsettingsd dunst xfce4-power-manager polybar picom wluma dropbox megasync
+killall monitor-battery.sh
+
+# Lauch notification daemon
+dunst &
+# deadd-notification-center &
+
+pgrep -x sxhkd > /dev/null || sxhkd -c /home/john/.config/sxhkd/sxhkdrc &
+
+# xsetroot -cursor_name left_ptr &
+
+# Set keyboard layout
+setxkbmap -option grp:alt_shift_toggle us,ru,ua &
+# setxkbmap -option grp:alt_shift_toggle us,ua &
+
+# wluma &
+
+# nitrogen --restore &
+
+
+exec picom --backend glx --vsync --no-use-damage --experimental-backends &
+
+/home/john/.scripts/set-wallpaper.sh
+
+~/.config/polybar/launch.sh &
+
+exec /home/john/.scripts/monitor-battery.sh &
+
+# Autostart
+dropbox &
+megasync &
+nm-applet &
+# discord &
+
+# wal-telegram --wal -g -r
+zathura-pywal
+
+# -- SCRATCHPAD --
+# bspc rule -a scratchpad sticky=on state=floating hidden=on
+# # check scratchpad already running
+# [ "$(ps -x | grep -c 'scratchpad')" -eq "1" ] && st -c scratchpad -e ~/bin/scratch &

@@ -6,12 +6,12 @@ include-file=./colors
 ; modules-left = bspwm space title
 
 ; modules-right = xkeyboard gap pulseaudio gap cpu memory gap filesystem temperature battery gap date gap
-modules-right = xkeyboard gap pulseaudio gap filesystem temperature battery gap date gap
+modules-right = xkeyboard gap pulseaudio gap cpu memory filesystem temperature battery gap date gap
 modules-center =
 modules-left = bspwm 
 
 width = 100%
-height = 26
+height = 28
 offset-x = 0%
 offset-y = 0%
 radius = 0.0
@@ -106,7 +106,7 @@ modules-right = xkeyboard gap pulseaudio gap filesystem temperature battery gap 
 modules-center =
 modules-left = bspwm 
 width = 100%
-height = 26
+height = 30
 ; offset-x = 100%
 ; offset-y = 0%
 radius = 0.0

@@ -1,27 +1,57 @@
 [colors]
 ; Main bar bg color 
 ; background = #000000
-background = #001E1E28
 ; Modules bg color
 ; background-alt = #1E1E28
-background-alt = #000000
-background-alt-2 = #bd93f9
-background-alt-3 = #5B5F78
 ; main foreground color 
-foreground = #D9E0EE
 ; accent color
-accent = #56b9FF
+
+foreground = ${xrdb:color7:#222}
+background = ${xrdb:color0:#222}
+
+background-alt = ${xrdb:color0:#222}
+background-alt-2 = ${xrdb:color0:#222}
+background-alt-3 = ${xrdb:color0:#222}
+
+; foreground = #D9E0EE
+; background = #000000cc
+; background-alt = #00000000
+; background-alt-2 = #000000fc
+; background-alt-3 = #000000fc
+
+
+; accent = #56b9FF
+accent = ${xrdb:color1:#5bf}
 empty = #00000000
+
+; foreground = #D9E0EE
+; background = #001E1E28
+; background-alt = #000000
+; background-alt-2 = #bd93f9
+; background-alt-3 = #5B5F78
+; accent = #56b9FF
+; empty = #00000000
 
 mauve = #DDB6F2
 black = #131020
-green = #9bff93
-red = #F83322
-orange = #F89a66
-cyan = #80bfff
-pink = #F592f7
-yellow = #CAA330
-blue = #4644FB
-teal = #B5E8E0
-gray = #777
-flamingo = #ffafda
+; green = #9bff93
+; red = #F83322
+; orange = #F89a66
+; cyan = #80bfff
+; pink = #F592f7
+; yellow = #CAA330
+; blue = #4644FB
+; teal = #B5E8E0
+; gray = #777
+; flamingo = #ffafda
+
+green    = ${xrdb:color2:#9bff93}
+red      = ${xrdb:color3:#F83322}
+orange   = ${xrdb:color4:#F89a66}
+cyan     = ${xrdb:color5:#80bfff}
+pink     = ${xrdb:color6:#F592f7}
+yellow   = ${xrdb:color7:#CAA330}
+blue     = ${xrdb:color8:#4644FB}
+teal     = ${xrdb:color9:#B5E8E0}
+gray     = ${xrdb:color10:#777   }
+flamingo = ${xrdb:color11:#ffafda}

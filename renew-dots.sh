@@ -5,6 +5,7 @@ cp -r ~/.config/bspwm ./.config/
 cp -r ~/.config/btop ./.config/
 cp -r ~/.config/dunst ./.config/
 cp -r ~/.config/eww ./.config/
+cp -r ~/.config/fish ./.config/
 cp -r ~/.config/kitty ./.config/
 cp -r ~/.config/mopidy ./.config/
 cp -r ~/.config/mpd ./.config/

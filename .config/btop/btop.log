@@ -6,3 +6,17 @@
 2022/11/27 (19:51:13) | INFO: Logger set to INFO
 2022/11/27 (19:51:14) | INFO: Logger set to DEBUG
 2022/11/27 (19:51:15) | INFO: Logger set to INFO
+
+2023/01/02 (15:09:19) | ===> btop++ v.1.2.13
+2023/01/02 (15:09:19) | ERROR: Stall in Runner thread, restarting!
+2023/01/02 (20:18:33) | ERROR: Stall in Runner thread, restarting!
+
+2023/01/12 (19:51:18) | ===> btop++ v.1.2.13
+2023/01/12 (19:51:18) | ERROR: Stall in Runner thread, restarting!
+
+2023/01/13 (16:15:33) | ===> btop++ v.1.2.13
+2023/01/13 (16:15:33) | ERROR: Stall in Runner thread, restarting!
+
+2023/01/13 (16:15:33) | ===> btop++ v.1.2.13
+2023/01/13 (16:15:33) | ERROR: Stall in Runner thread, restarting!
+2023/01/13 (16:16:01) | WARNING: Failed to join _runner thread on exit!

@@ -31,15 +31,16 @@ bspc config normal_border_color  \#000000
 
 bspc config window_gap           6
 
-bspc config split_ratio          0.58
+bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc config ignore_ewmh_focus true
 
 bspc config focus_follows_pointer true
-bspc config top_padding 26
+bspc config top_padding 28
 bspc config pointer_modifier mod1
+bspc config pointer_action1 move
 
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
 #bspc rule -a Chromium desktop='^2'
@@ -49,6 +50,7 @@ bspc config pointer_modifier mod1
 bspc rule -a Inkscape desktop='^6' follow=on
 # bspc rule -a TelegramDesktop desktop='^10' follow=on state=floating
 # bspc rule -a TelegramDesktop desktop='^10' follow=on
+bspc rule -a TelegramDesktop desktop='^8' state=floating
 
 # bspc rule -a discord desktop='^10' state=floating follow=off
 # bspc rule -a Discord desktop='^10' state=floating follow=off
@@ -61,49 +63,4 @@ bspc rule -a MEGAsync state=floating
 bspc rule -a URxvt state=floating
 bspc rule -a pavucontrol state=floating follow=on
 
-#####################
-
-# Kill if already running
-# killall -9 sxhkd xsettingsd deadd-notification-center xfce4-power-manager polybar picom wluma 
-killall -9 sxhkd xsettingsd dunst xfce4-power-manager polybar picom wluma dropbox megasync
-killall monitor-battery.sh
-
-# Lauch notification daemon
-dunst &
-# deadd-notification-center &
-
-pgrep -x sxhkd > /dev/null || sxhkd -c /home/john/.config/sxhkd/sxhkdrc &
-
-# xsetroot -cursor_name left_ptr &
-
-# Set keyboard layout
-setxkbmap -option grp:alt_shift_toggle us,ru,ua &
-# setxkbmap -option grp:alt_shift_toggle us,ua &
-
-# wluma &
-
-# nitrogen --restore &
-
-
-# exec polybar main -c $HOME/.config/polybar/config &
-# polybar music &
-# polybar other &
-# polybar bspwm &
-exec ~/.config/polybar/launch.sh &
-
-exec picom --backend glx --vsync --no-use-damage --experimental-backends &
-
-exec /home/john/.scripts/set-wallpaper.sh &
-
-exec /home/john/.scripts/monitor-battery.sh &
-
-# Autostart
-dropbox &
-megasync &
-nm-applet &
-# discord &
-
-# -- SCRATCHPAD --
-# bspc rule -a scratchpad sticky=on state=floating hidden=on
-# # check scratchpad already running
-# [ "$(ps -x | grep -c 'scratchpad')" -eq "1" ] && st -c scratchpad -e ~/bin/scratch &
+~/.config/bspwm/applets

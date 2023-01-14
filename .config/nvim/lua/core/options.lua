@@ -11,14 +11,20 @@ g.theme_switcher_loaded = false
 g.magma_image_provider = "ueberzug"
 
 if g.neovide then
-  opt.guifont = { "Iosevka NF", ":h8" }
+  -- opt.guifont = { "Iosevka NF", ":h8" }
+  -- opt.guifont = { "Nimbus Mono NF", ":h8" }
+  -- opt.guifont = { "JetBrainsMono NF", ":h8" }
+  -- opt.guifont = { "Monoid Nerd Font", ":h8" }
+  opt.guifont = { "MesloLGL Nerd Font", ":h8" }
   g.neovide_scale_factor = 1
   g.neovide_transparency = 1
-  g.neovide_scroll_animation_length = 0.2
+  g.neovide_cursor_antialiasing = true
+  g.neovide_scroll_animation_length = 0.3
   g.neovide_hide_mouse_when_typing = true
   g.neovide_cursor_trail_size = 0.7
+  g.neovide_profiler = false
   -- railgun | torpedo | pixiedust | sonicboom | ripple | wireframe
-  g.neovide_cursor_vfx_mode = "pixiedust"
+  g.neovide_cursor_vfx_mode = "torpedo"
 end
 
 -- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
